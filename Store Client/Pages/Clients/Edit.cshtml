@@ -1,0 +1,59 @@
+﻿@page
+@model Store_Client.Pages.Clients.EditModel
+@{
+}
+
+<br />
+<h2>Editer le client @Model.client.name</h2>
+
+@if(Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.client.id" />
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nom</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.client.name" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" name="email" value="@Model.client.email" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Telephone</label>
+        <div class="col-sm-6">
+            <input type="tel" class="form-control" name="phone" value="@Model.client.phone" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Adresse</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="address" value="@Model.client.address" />
+        </div>
+    </div>
+    
+@if(Model.successMessage.Length > 0)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@Model.successMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+    </div>
+}
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-btn-outline-primary" href="/Clients" role="button">Annuler</a>
+        </div>
+    </div>
+</form>
